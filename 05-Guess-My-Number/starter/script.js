@@ -16,6 +16,7 @@ let secretNumber = Math.trunc(Math.random() * 20) + 1;
 
 //We use let here instead of const as this variable will change.
 let score = 20;
+let highscore = 0;
 
 //How I did the challenge (the again button)
 // document.querySelector('.again').addEventListener('click', function () {
@@ -57,6 +58,10 @@ document.querySelector('.check').addEventListener('click', function () {
     document.querySelector('body').style.backgroundColor = '#60b347';
     document.querySelector('.number').style.width = '30rem';
     document.querySelector('.number').textContent = secretNumber;
+    if (score > highscore) {
+      highscore = score;
+      document.querySelector('.highscore').textContent = highscore;
+    }
 
     //When input is too high
   } else if (guess > secretNumber) {
